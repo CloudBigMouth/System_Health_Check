@@ -2,15 +2,14 @@ services:
   system-health-check:
     build: .
     restart: unless-stopped
-    # Bỏ ports hoàn toàn
     pid: host
     volumes:
       - /:/host:ro
-    environment:
-      CPU_ALERT: "80"
-      RAM_ALERT: "80"
-      DISK_ALERT: "85"
-      DISK_PATH: "/host"
-      API_KEY: ""
     expose:
-      - "8000"   # chỉ expose trong Docker network nội bộ
+      - "8000"
+    environment:
+      CPU_ALERT: ${CPU_ALERT:-80}
+      RAM_ALERT: ${RAM_ALERT:-80}
+      DISK_ALERT: ${DISK_ALERT:-85}
+      DISK_PATH: ${DISK_PATH:-/host}
+      API_KEY: ${API_KEY:-}
