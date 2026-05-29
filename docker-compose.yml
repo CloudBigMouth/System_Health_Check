@@ -10,7 +10,7 @@ services:
     environment:
       CPU_ALERT: ${CPU_ALERT:-80}
       RAM_ALERT: ${RAM_ALERT:-80}
-      DISK_ALERT: ${DISK_ALERT:-85}
+      DISK_ALERT: ${DISK_ALERT:-80}
       DISK_PATH: ${DISK_PATH:-/host}
       API_KEY: ${API_KEY:-}
     healthcheck:
